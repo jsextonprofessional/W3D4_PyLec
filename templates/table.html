@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table for {{table[0][1]}}</title>
+    <style>
+        .even {
+            color: blueviolet;
+            background-color: red;
+        }
+        .odd {
+            color: chartreuse;
+            background-color: blue;
+        }
+        td {
+            border: 2px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <h1>a multiplication table</h1>
+    <table>
+        <tr>
+            <th>/</th>
+            {% for number in table[0] %}
+            <th>{{number}}</th>
+            {% endfor %}
+        </tr>
+        {% for row in table %}
+        <tr>
+            <th>{{row[0]}}</th>
+            {% for number in row %}
+            <td class={% if number % 2 == 0 %}"even"{% else %}"odd"{% endif %}>{{number}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
